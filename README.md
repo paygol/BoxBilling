@@ -40,9 +40,9 @@
 ### Installation:
 
 - Unzip paygol_for_boxbilling_1.0.zip directly into your Boxbilling folder.
-- To install the module, go to your BoxBilling administration panel ('Configuration -> Payment Gateways'), select Paygol at the "New payment gateways" tab, then click "Install".
-- Once installed, proceed to the module's configuration page ('Configuration -> Payment Gateways'), select Paygol and click "Edit".
-- Enter the ID of your Paygol service (you can find this ID at the "My Services" section of your Dashboard, at Paygol's website).
+- To install the module, go to your BoxBilling administration panel (`Configuration -> Payment Gateways`), select Paygol at the "`New payment gateways`" tab, then click "`Install`".
+- Once installed, proceed to the module's configuration page (`Configuration -> Payment Gateways`), select Paygol and click "`Edit`".
+- Enter the ID of your Paygol service (you can find this ID at the "`My Services`" section of your Dashboard, at Paygol's website).
 - Make sure that the module is configured as follows:
 	- "Enabled: Yes".
 	- "Allow one time payments: Yes".
