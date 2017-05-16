@@ -64,23 +64,23 @@ In order for all instances of the Paygol button to be shown correctly, please do
 - Add the following lines to the end of the file.
   
   ```html 
-  	.logo-PayGol <br>
-	{ <br>
-		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%; <br>
-		background-size: contain; <br>
-		width:80px; <br> 
-		height: 28px; <br>
-		border: 0; <br>
-		margin: 10px; <br>
-	} <br>
+  	.logo-PayGol
+	{ 
+		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%; 
+		background-size: contain; 
+		width:80px; 
+		height: 28px; 
+		border: 0;
+		margin: 10px;
+	}
 	```
 - Save changes.
 
-Please note: if you are not using the default theme "huraga", you need to do the following:
-- Modify the CSS file on the right folder, not in "huraga".
-  e.g. "bb-themes/mytheme/assets/css/logos.css".
-- Copy image "bb-themes/huraga/assets/img/gateway_logos/PayGol.png" to a similar path for the other theme.
-  e.g. "bb-themes/mytheme/assets/img/gateway_logos/PayGol.png".
+Please note: if you are not using the default theme "`huraga`", you need to do the following:
+- Modify the CSS file on the right folder, not in "`huraga`".
+  e.g. "`bb-themes/mytheme/assets/css/logos.css`".
+- Copy image "`bb-themes/huraga/assets/img/gateway_logos/PayGol.png`" to a similar path for the other theme.
+  e.g. "`bb-themes/mytheme/assets/img/gateway_logos/PayGol.png`".
 - As an alternative to the previous steps, just rename the folder name with the right one before copying it to your server.
  
 ### Important Notes:
