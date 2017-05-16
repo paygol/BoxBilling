@@ -1,5 +1,5 @@
 # BoxBilling
-
+<img src="paygol_logo.png" alt="PayPal - BoxBilling" />
 Paygol module v1.0 for BoxBilling  
 
 About this module:
