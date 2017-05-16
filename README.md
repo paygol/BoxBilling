@@ -44,26 +44,26 @@
 - Once installed, proceed to the module's configuration page (`Configuration -> Payment Gateways`), select Paygol and click "`Edit`".
 - Enter the ID of your Paygol service (you can find this ID at the "`My Services`" section of your Dashboard, at Paygol's website).
 - Make sure that the module is configured as follows:
-	- "Enabled: Yes".
-	- "Allow one time payments: Yes".
-	- "Enable test mode: No". (please check the "Testing" section of this document for information on how to test your service).
-- Copy the "IPN Callback URL" exactly as shown and paste it into the "Process URL (IPN)" field of the configuration of your service, accessible through
-  the "My Services" section of your Dashboard, at Paygol's website.
+	- "`Enabled: Yes`".
+	- "`Allow one time payments: Yes`".
+	- "`Enable test mode: No`". (please check the "Testing" section of this document for information on how to test your service).
+- Copy the "`IPN Callback URL`" exactly as shown and paste it into the "Process URL (IPN)" field of the configuration of your service, accessible through
+  the "`My Services`" section of your Dashboard, at Paygol's website.
 
 	
 
 ### Testing:
 
-- To test the newly installed module you can enable your service's test mode at the "My Services" section of your Dashboard, at Paygol's website. 
+- To test the newly installed module you can enable your service's test mode at the "`My Services`" section of your Dashboard, at Paygol's website. 
   Be sure to change it back when going live.
   
 ### Paygol button image:
 
 In order for all instances of the Paygol button to be shown correctly, please do as follows:
-- Edit "logos.css" from your BoxBilling installation. It's located at "bb-themes/huraga/assets/css/logos.css".
+- Edit "`logos.css`" from your BoxBilling installation. It's located at "`bb-themes/huraga/assets/css/logos.css`".
 - Add the following lines to the end of the file.
   
-  .logo-PayGol
+  `.logo-PayGol
 	{
 		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%;
 		background-size: contain;
@@ -71,7 +71,7 @@ In order for all instances of the Paygol button to be shown correctly, please do
 		height: 28px;
 		border: 0;
 		margin: 10px;
-	}
+	}`
 - Save changes.
 
 Please note: if you are not using the default theme "huraga", you need to do the following:
