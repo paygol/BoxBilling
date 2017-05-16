@@ -64,7 +64,7 @@ In order for all instances of the Paygol button to be shown correctly, please do
 - Add the following lines to the end of the file.
   
   ```html 
-  	.logo-PayGol
+  .logo-PayGol
 	{ 
 		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%; 
 		background-size: contain; 
