@@ -63,15 +63,17 @@ In order for all instances of the Paygol button to be shown correctly, please do
 - Edit "`logos.css`" from your BoxBilling installation. It's located at "`bb-themes/huraga/assets/css/logos.css`".
 - Add the following lines to the end of the file.
   
-  `.logo-PayGol
-	{
-		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%;
-		background-size: contain;
-		width:80px;
-		height: 28px;
-		border: 0;
-		margin: 10px;
-	}`
+  ```html 
+  	.logo-PayGol <br>
+	{ <br>
+		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%; <br>
+		background-size: contain; <br>
+		width:80px; <br> 
+		height: 28px; <br>
+		border: 0; <br>
+		margin: 10px; <br>
+	} <br>
+	```
 - Save changes.
 
 Please note: if you are not using the default theme "huraga", you need to do the following:
