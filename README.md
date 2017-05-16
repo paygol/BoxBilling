@@ -1,19 +1,44 @@
-# BoxBilling
 <img src="paygol_logo.png" alt="PayPal - BoxBilling" />
-Paygol module v1.0 for BoxBilling  
 
-About this module:
-- This module allows you to easily integrate Paygol on your platform. Paygol is an online payment gateway that offers a 
-  wide array of both worldwide and local payment methods such as credit and debit card, paysafecard, bank transfers, cash payments, 
-  SMS/call and more. More payment options and wider coverage means that paying for your products and services will be easier than ever 
-  for your customers, which can lead to an increase in sales.
 
-Requirements:
+# BoxBilling
+
+
+## PayGol module for BoxBilling<br>
+[About PayGol](#about-paygol) <br>
+[About this module](#about-this-module) <br>
+[Requirements](#requirements) <br>
+[Installation](#installation) <br>
+[Testing](#testing) <br>
+[Paygol button image](#paygol-button-image) <br>
+[Important Notes](#important-notes) <br><br>
+
+---
+
+## Paygol module v1.0 for BoxBilling
+
+### About PayGol:
+
+- PayGol is an online payment service provider that offers a wide variety of both worldwide and local payment methods.
+- Additional information can be found at:
+  https://www.paygol.com  <br>
+  https://www.paygol.com/pricing
+  
+### About this module:
+
+- This module allows you to easily integrate Paygol on your platform. 
+  Paygol is an online payment gateway that offers a wide array of both worldwide and local payment methods such as credit and debit card, paysafecard, bank transfers, cash payments, SMS/call and more. More payment options and wider coverage means that paying for your products and services will be easier than ever for your customers, which can lead to an increase in sales.
+    
+
+### Requirements:
+
 - Working BoxBilling installation (tested with version 4.20).
 - Paygol account.
 - Standard, "Integrated" type Paygol service.
+  
+  
+### Installation:
 
-Installation:
 - Unzip paygol_for_boxbilling_1.0.zip directly into your Boxbilling folder.
 - To install the module, go to your BoxBilling administration panel (Configuration -> Payment Gateways), select Paygol at the "New payment gateways" tab, then click "Install".
 - Once installed, proceed to the module's configuration page (Configuration -> Payment Gateways), select Paygol and click "Edit".
@@ -25,11 +50,15 @@ Installation:
 - Copy the "IPN Callback URL" exactly as shown and paste it into the "Process URL (IPN)" field of the configuration of your service, accessible through
   the "My Services" section of your Dashboard, at Paygol's website.
 
-Testing:
-- To test the newly installed module you can enable your service's test mode at the "My Services" section of your Dashboard, at Paygol's website. 
-  Be sure to change it back when going live.  
+	
 
-Paygol button image:
+### Testing:
+
+- To test the newly installed module you can enable your service's test mode at the "My Services" section of your Dashboard, at Paygol's website. 
+  Be sure to change it back when going live.
+  
+### Paygol button image:
+
 In order for all instances of the Paygol button to be shown correctly, please do as follows:
 - Edit "logos.css" from your BoxBilling installation. It's located at "bb-themes/huraga/assets/css/logos.css".
 - Add the following lines to the end of the file.
@@ -51,8 +80,9 @@ Please note: if you are not using the default theme "huraga", you need to do the
 - Copy image "bb-themes/huraga/assets/img/gateway_logos/PayGol.png" to a similar path for the other theme.
   e.g. "bb-themes/mytheme/assets/img/gateway_logos/PayGol.png".
 - As an alternative to the previous steps, just rename the folder name with the right one before copying it to your server.
+ 
+### Important Notes:
 
-Important Notes:
 - While in test mode, an IPN request (payment notification) will be issued immediately to your platform after each test.
 - After a payment is completed it will be shown as completed but Pending Setup until you activate it at your BoxBilling panel.
 - Payments are usually notified immediately; however, certain payment methods may take longer to confirm the payment 
@@ -60,3 +90,8 @@ Important Notes:
   to print it in order to pay by cash at a given place). In these cases the product is shown as not paid, and only 
   once it's confirmed by the provider will it show as paid. We strongly recommend that you inform your customers about this 
   beforehand in order to avoid confusions.
+	
+
+---
+<br>
+
