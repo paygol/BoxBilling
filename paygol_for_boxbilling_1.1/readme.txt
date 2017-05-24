@@ -1,6 +1,6 @@
 ******* English *******
 
-Paygol module v1.0 for BoxBilling  
+Paygol module v1.1 for BoxBilling  
 
 About this module:
 - This module allows you to easily integrate Paygol on your platform. Paygol is an online payment gateway that offers a 
@@ -14,7 +14,7 @@ Requirements:
 - Standard, "Integrated" type Paygol service.
 
 Installation:
-- Unzip paygol_for_boxbilling_1.0.zip directly into your Boxbilling folder.
+- Unzip paygol_for_boxbilling_1.1.zip directly into your Boxbilling folder.
 - To install the module, go to your BoxBilling administration panel (Configuration -> Payment Gateways), select Paygol at the "New payment gateways" tab, then click "Install".
 - Once installed, proceed to the module's configuration page (Configuration -> Payment Gateways), select Paygol and click "Edit".
 - Enter the ID of your Paygol service (you can find this ID at the "My Services" section of your Dashboard, at Paygol's website).
@@ -69,7 +69,7 @@ Important Notes:
 
 ******* Español *******
 
-Módulo de Paygol v1.0 para BoxBilling
+Módulo de Paygol v1.1 para BoxBilling
 
 Acerca de este módulo:
 - Este módulo permite integrar Paygol fácilmente en tu sistema. Paygol es un sistema de pagos en línea que ofrece una amplia variedad 
@@ -83,7 +83,7 @@ Requerimientos:
 - Servicio Estándar de Paygol, de tipo "Integrado".
 
 Instalación:
-- Descomprime el archivo paygol_for_boxbilling_1.0.zip directamente en tu carpeta de BoxBilling.
+- Descomprime el archivo paygol_for_boxbilling_1.1.zip directamente en tu carpeta de BoxBilling.
 - Para instalar el módulo, ve al panel de administración de BoxBilling (Configuration -> Payment Gateways), selecciona Paygol en la pestaña "New payment gateways", y haz click en "Install".
 - Una vez instalado, procede a la página de configuración del módulo (Configuration -> Payment Gateways), selecciona Paygol y haz click en "Edit".
 - Ingresa el ID de tu servicio de Paygol (puedes encontrarlo en la sección "Mis Servicios" de tu panel de control, en el sitio web de Paygol).
