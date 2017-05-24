@@ -25,21 +25,21 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 	public static function getConfig()
     {
         return array(
-            'supports_one_time_payments'   =>  true,
-            //'supports_subscriptions'       =>  false,
+            'supports_one_time_payments'  =>  true,
+            //'supports_subscriptions'    =>  false,
 			'test_mode'       =>  false,
 			'description'     =>  'PayGol is an online payment service provider that offers a wide variety of both worldwide and local payment methods.',
             'form'  => array(
                 'service_id' => array('text', array(
                             'label' => 'Service ID', 
                             'description' => 'Enter the ID of your PayGol service (can be found at the "My Services" section of your panel, at PayGol website).',
-						),
-					),	
-				'secret_key' => array('text', array(
+			),
+		),	
+		'secret_key' => array('text', array(
                             'label' => 'Secret Key', 
                             'description' => 'Enter the secret key of your PayGol service (can be found at the "My Services" section of your panel, at PayGol website).',
-						),	
-					),
+			),	
+		),
             ),
         );
     }
@@ -79,13 +79,13 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 			throw new Payment_Exception('Error: Record is duplicate - PayGol');
 		}
 		
-			$ipn 			 = array_merge($data['get'], $data['post']);	
-			$tx 			 = $api_admin->invoice_transaction_get(array('id'=>$id));
-			$custom			 = $ipn['custom'];
+			$ipn 		 = array_merge($data['get'], $data['post']);	
+			$tx 		 = $api_admin->invoice_transaction_get(array('id'=>$id));
+			$custom		 = $ipn['custom'];
 			$custom_data 	 = explode(";", $custom);
 			$clienteid    	 = $custom_data[0]; 
 			$bbinvoice_id 	 = $custom_data[1]; 
-			$bb_total	 	 = $custom_data[2]; 
+			$bb_total	 = $custom_data[2]; 
 			$invoicehash	 = $custom_data[3]; 
 			$api_admin->invoice_transaction_update(array('id' => $id, 'type' => 'ORDER CREATED'));
 
@@ -102,7 +102,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 				throw new Payment_Exception('Invoice id could not be determined for this transaction');
 			}
 			
-			$invoice 	= $api_admin->invoice_get(array('id'=>$invoice_id));
+			$invoice    = $api_admin->invoice_get(array('id'=>$invoice_id));
 			$client_id  = $invoice['client']['id'];    
 			
 			$tx_data = array(
@@ -137,14 +137,14 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 	///////////////////////////////////////////////
 	public function isIpnValid($data)
     {
-		$data_get 		 = $data['get'];
-		$custom			 = $data_get['custom'];
+		$data_get 	 = $data['get'];
+		$custom		 = $data_get['custom'];
 		$custom_data 	 = explode(";", $custom);
 		$clienteid    	 = $custom_data[0]; 
 		$bbinvoice_id 	 = $custom_data[1]; 
-		$bb_total	 	 = $custom_data[2]; 
+		$bb_total	 = $custom_data[2]; 
 		$invoicehash	 = $custom_data[3]; 
-		$gateway_id	     = $data_get['bb_gateway_id'];
+		$gateway_id	 = $data_get['bb_gateway_id'];
 			
 		
 		if($data_get['service_id'] != $this->config['service_id'])
@@ -166,7 +166,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		$bindings3 = array(
 			':invoice_id' 	  => $bbinvoice_id,
 			':gateway_id' 	  => $gateway_id,
-			':hash' 	  	  => $invoicehash,
+			':hash' 	  => $invoicehash,
 		);
 		$rows3 = $this->di['db']->getAll($sql3, $bindings3);
 		
@@ -187,7 +187,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		
 		foreach($invoice['lines'] as $i=>$item) 
 		{
-		   $data['pg_serviceid']  	= $this->config['service_id'];
+		   $data['pg_serviceid']    = $this->config['service_id'];
 		   $data['pg_currency']     = $invoice['currency'];
 		   $data['pg_name']         = $item['title'];
 		   $data['pg_custom']       = $invoice['client']['id'].";".$invoice['id'].";".$invoice['total'].";".$invoice['hash'];
@@ -222,18 +222,18 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 	//////////////////////////////////////////////////
     public function isIpnDuplicate(array $data)
     {
-			$data_get 		 = $data['get'];
-			$custom			 = $data_get['custom'];
+			$data_get 	 = $data['get'];
+			$custom		 = $data_get['custom'];
 			$custom_data 	 = explode(";", $custom);
 			$clienteid    	 = $custom_data[0]; 
 			$bbinvoice_id 	 = $custom_data[1]; 
-			$bb_total	 	 = $custom_data[2]; 
+			$bb_total	 = $custom_data[2]; 
 			$invoicehash	 = $custom_data[3]; 
-			$gatewayid		 = $data_get['bb_gateway_id'];
+			$gatewayid	 = $data_get['bb_gateway_id'];
 			
 			$sql      = 'SELECT id FROM transaction WHERE txn_id = :transaction_id  AND amount = :transaction_amount LIMIT 1'; 
 			$bindings = array(
-				':transaction_id' 	  => $bbinvoice_id,
+				':transaction_id'     => $bbinvoice_id,
 				':transaction_amount' => $bb_total,
 			);
 			$rows = $this->di['db']->getAll($sql, $bindings);
