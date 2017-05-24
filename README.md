@@ -11,7 +11,8 @@
 [Installation](#installation) <br>
 [Testing](#testing) <br>
 [Paygol button image](#paygol-button-image) <br>
-[Important Notes](#important-notes) <br><br>
+[Important Notes](#important-notes) <br>
+[Changelog](#changelog)<br><br>
 
 ---
 
@@ -92,6 +93,16 @@ Please note: if you are not using the default theme "`huraga`", you need to do t
   once it's confirmed by the provider will it show as paid. We strongly recommend that you inform your customers about this 
   beforehand in order to avoid confusions.
 	
+
+### Changelog
+
+
+#### v1.1
+- New release, added validation for payment notifications
+
+#### v1.0
+
+- Initial release.
 
 ---
 <br>
