@@ -149,17 +149,17 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		
 		if($data_get['service_id'] != $this->config['service_id'])
 		{
-            //error_log('PayGol Service ID does not match');
+                //error_log('PayGol Service ID does not match');
 	        return false;
-        }
+                }
 		
 		
 		$key_module = trim($this->config['secret_key']);
 		if($data_get['key'] != $key_module)
 		{
-            //error_log('PayGol secret key does not match');
+                //error_log('PayGol secret key does not match');
 	        return false;
-        }
+                }
 
 		
 		$sql3 = 'SELECT id FROM invoice WHERE id = :invoice_id  AND gateway_id = :gateway_id AND hash = :hash'; 
@@ -179,8 +179,8 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		return true;
     }
 	
-	////////////////////////////////////////////
-	private function _singlePayment($invoice)
+    ////////////////////////////////////////////
+    private function _singlePayment($invoice)
     {
 		$b = $invoice['buyer'];
 		$data = array();
@@ -197,14 +197,14 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		}
         return $data;
     }
-	//////////////////////////////////////////////////
-	public function _recurrentPayment($invoice) 
+  //////////////////////////////////////////////////
+  public function _recurrentPayment($invoice) 
 	{
 		throw new Payment_Exception('Not implemented yet');	
 	}
-	//////////////////////////////////////////////////
-	private function _generateForm($url, $data, $method = 'post')
-    {
+  //////////////////////////////////////////////////
+  private function _generateForm($url, $data, $method = 'post')
+   {
         $form  = '';
         $form .= '<form name="pg_frm"" action="'.$url.'" method="'.$method.'">' . PHP_EOL;
         foreach($data as $key => $value) {
@@ -219,7 +219,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
         }
 		return $form;
 	}
-	//////////////////////////////////////////////////
+    //////////////////////////////////////////////////
     public function isIpnDuplicate(array $data)
     {
 			$data_get 	 = $data['get'];
