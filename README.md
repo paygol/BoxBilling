@@ -99,7 +99,7 @@ Please note: if you are not using the default theme "`huraga`", you need to do t
 
 
 #### v1.1
-- New release, added validation for payment notifications
+- New release, added validation for payment notifications.
 
 #### v1.0
 
