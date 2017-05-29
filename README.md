@@ -1,11 +1,11 @@
-<img src="paygol_logo.png" alt="PayPal - BoxBilling" />
+<img src="paygol_logo.png" alt="Paygol - BoxBilling" />
 
 
 # BoxBilling
 
 
-## PayGol module for BoxBilling<br>
-[About PayGol](#about-paygol) <br>
+## Paygol module for BoxBilling<br>
+[About Paygol](#about-paygol) <br>
 [About this module](#about-this-module) <br>
 [Requirements](#requirements) <br>
 [Installation](#installation) <br>
@@ -18,9 +18,9 @@
 
 ## Paygol module v1.1 for BoxBilling
 
-### About PayGol:
+### About Paygol:
 
-- PayGol is an online payment service provider that offers a wide variety of both worldwide and local payment methods.
+- Paygol is an online payment service provider that offers a wide variety of both worldwide and local payment methods.
 - Website: https://www.paygol.com 
 - Payment methods: https://www.paygol.com/pricing
   
