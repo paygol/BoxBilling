@@ -29,16 +29,15 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
     {
         return array(
             'supports_one_time_payments'   =>  true,
-            //'supports_subscriptions'       =>  false,
-			'test_mode'       =>  false,
+            		'test_mode'       =>  false,
 			'description'     =>  'Paygol is an online payment service provider that offers a wide variety of both worldwide and local payment methods.',
-            'form'  => array(
-                'service_id' => array('text', array(
+                        'form'  => array(
+                            'service_id' => array('text', array(
                             'label' => 'Service ID', 
                             'description' => 'Enter the ID of your Paygol service (can be found at the "My Services" section of your panel, at Paygol website).',
 						),
 					),	
-				'secret_key' => array('text', array(
+			    'secret_key' => array('text', array(
                             'label' => 'Secret Key', 
                             'description' => 'Enter the secret key of your Paygol service (can be found at the "My Services" section of your panel, at Paygol website).',
 						),	
@@ -47,8 +46,8 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
         );
     }
     
-	////////////////////////////////////////////
-	public function getHtml($api_admin, $invoice_id, $subscription)
+    ////////////////////////////////////////////
+    public function getHtml($api_admin, $invoice_id, $subscription)
     {
         $invoice = $api_admin->invoice_get(array('id'=>$invoice_id));
 		
@@ -63,13 +62,13 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
         return $this->_generateForm($url, $data);
     }
    
-	////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     public function processTransaction($api_admin, $id, $data, $gateway_id)
     {
 		if(!$this->isIpnValid($data)) 
 		{
-			$delete 		 = $this->di['db']->getAll('DELETE FROM transaction WHERE id = :invoice_id', array(':invoice_id' => $id));
-			$delete2 		 = $this->di['db']->getAll('DELETE FROM transaction WHERE invoice_id IS NULL');	
+			$delete 	 = $this->di['db']->getAll('DELETE FROM transaction WHERE id = :invoice_id', array(':invoice_id' => $id));
+			$delete2 	 = $this->di['db']->getAll('DELETE FROM transaction WHERE invoice_id IS NULL');	
 			throw new Payment_Exception('Error: IPN is not valid - Paygol ');
 			
 		}
@@ -77,18 +76,18 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		
 		if ($this->isIpnDuplicate($data))
 		{
-			$delete 		 = $this->di['db']->getAll('DELETE FROM transaction WHERE id = :invoice_id', array(':invoice_id' => $id));
-			$delete2 		 = $this->di['db']->getAll('DELETE FROM transaction WHERE invoice_id IS NULL');	
+			$delete 	 = $this->di['db']->getAll('DELETE FROM transaction WHERE id = :invoice_id', array(':invoice_id' => $id));
+			$delete2 	 = $this->di['db']->getAll('DELETE FROM transaction WHERE invoice_id IS NULL');	
 			throw new Payment_Exception('Error: Record is duplicate - Paygol');
 		}
 		
-			$ipn 			 = array_merge($data['get'], $data['post']);	
-			$tx 			 = $api_admin->invoice_transaction_get(array('id'=>$id));
-			$custom			 = $ipn['custom'];
+			$ipn 		 = array_merge($data['get'], $data['post']);	
+			$tx 		 = $api_admin->invoice_transaction_get(array('id'=>$id));
+			$custom		 = $ipn['custom'];
 			$custom_data 	 = explode(";", $custom);
 			$clienteid    	 = $custom_data[0]; 
 			$bbinvoice_id 	 = $custom_data[1]; 
-			$bb_total	 	 = $custom_data[2]; 
+			$bb_total	 = $custom_data[2]; 
 			$invoicehash	 = $custom_data[3]; 
 			$api_admin->invoice_transaction_update(array('id' => $id, 'type' => 'ORDER CREATED'));
 
@@ -106,7 +105,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 			}
 			
 			$invoice 	= $api_admin->invoice_get(array('id'=>$invoice_id));
-			$client_id  = $invoice['client']['id'];    
+			$client_id  	= $invoice['client']['id'];    
 			
 			$tx_data = array(
 				'id'            =>  $id,
@@ -137,17 +136,17 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 				
     }
    
-	///////////////////////////////////////////////
-	public function isIpnValid($data)
+    ///////////////////////////////////////////////
+    public function isIpnValid($data)
     {
-		$data_get 		 = $data['get'];
-		$custom			 = $data_get['custom'];
+		$data_get 	 = $data['get'];
+		$custom		 = $data_get['custom'];
 		$custom_data 	 = explode(";", $custom);
 		$clienteid    	 = $custom_data[0]; 
 		$bbinvoice_id 	 = $custom_data[1]; 
-		$bb_total	 	 = $custom_data[2]; 
+		$bb_total	 = $custom_data[2]; 
 		$invoicehash	 = $custom_data[3]; 
-		$gateway_id	     = $data_get['bb_gateway_id'];
+		$gateway_id	 = $data_get['bb_gateway_id'];
 			
 		
 		if($data_get['service_id'] != $this->config['service_id'])
@@ -169,7 +168,7 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		$bindings3 = array(
 			':invoice_id' 	  => $bbinvoice_id,
 			':gateway_id' 	  => $gateway_id,
-			':hash' 	  	  => $invoicehash,
+			':hash' 	  => $invoicehash,
 		);
 		$rows3 = $this->di['db']->getAll($sql3, $bindings3);
 		
@@ -182,15 +181,15 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		return true;
     }
 	
-	////////////////////////////////////////////
-	private function _singlePayment($invoice)
+    ////////////////////////////////////////////
+    private function _singlePayment($invoice)
     {
 		$b = $invoice['buyer'];
 		$data = array();
 		
 		foreach($invoice['lines'] as $i=>$item) 
 		{
-		   $data['pg_serviceid']  	= $this->config['service_id'];
+		   $data['pg_serviceid']    = $this->config['service_id'];
 		   $data['pg_currency']     = $invoice['currency'];
 		   $data['pg_name']         = $item['title'];
 		   $data['pg_custom']       = $invoice['client']['id'].";".$invoice['id'].";".$invoice['total'].";".$invoice['hash'];
@@ -200,13 +199,13 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
 		}
         return $data;
     }
-	//////////////////////////////////////////////////
-	public function _recurrentPayment($invoice) 
+    //////////////////////////////////////////////////
+    public function _recurrentPayment($invoice) 
 	{
 		throw new Payment_Exception('Not implemented yet');	
 	}
-	//////////////////////////////////////////////////
-	private function _generateForm($url, $data, $method = 'post')
+    //////////////////////////////////////////////////
+    private function _generateForm($url, $data, $method = 'post')
     {
         $form  = '';
         $form .= '<form name="pg_frm"" action="'.$url.'" method="'.$method.'">' . PHP_EOL;
@@ -221,23 +220,23 @@ class Payment_Adapter_PayGol implements \Box\InjectionAwareInterface
             $form .=  "<script type='text/javascript'>$(document).ready(function(){    document.getElementById('payment_button').style.display = 'none';    document.forms['pg_frm'].submit();});</script>";
         }
 		return $form;
-	}
-	//////////////////////////////////////////////////
+	} 
+    //////////////////////////////////////////////////
     public function isIpnDuplicate(array $data)
     {
-			$data_get 		 = $data['get'];
-			$custom			 = $data_get['custom'];
+			$data_get 	 = $data['get'];
+			$custom		 = $data_get['custom'];
 			$custom_data 	 = explode(";", $custom);
 			$clienteid    	 = $custom_data[0]; 
 			$bbinvoice_id 	 = $custom_data[1]; 
-			$bb_total	 	 = $custom_data[2]; 
+			$bb_total	 = $custom_data[2]; 
 			$invoicehash	 = $custom_data[3]; 
-			$gatewayid		 = $data_get['bb_gateway_id'];
+			$gatewayid	 = $data_get['bb_gateway_id'];
 			
 			$sql      = 'SELECT id FROM transaction WHERE txn_id = :transaction_id  AND amount = :transaction_amount LIMIT 1'; 
 			$bindings = array(
 				':transaction_id' 	  => $bbinvoice_id,
-				':transaction_amount' => $bb_total,
+				':transaction_amount' 	  => $bb_total,
 			);
 			$rows = $this->di['db']->getAll($sql, $bindings);
 			if (count($rows) >=1 ) // invoice 1
