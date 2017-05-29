@@ -14,7 +14,7 @@ Requirements:
 - Standard, "Integrated" type Paygol service.
 
 Installation:
-- Unzip paygol_for_boxbilling_1.1.zip directly into your Boxbilling folder.
+- Unzip paygol_for_boxbilling_1.0.zip directly into your Boxbilling folder.
 - To install the module, go to your BoxBilling administration panel (Configuration -> Payment Gateways), select Paygol at the "New payment gateways" tab, then click "Install".
 - Once installed, proceed to the module's configuration page (Configuration -> Payment Gateways), select Paygol and click "Edit".
 - Enter the ID of your Paygol service (you can find this ID at the "My Services" section of your Dashboard, at Paygol's website).
@@ -35,9 +35,9 @@ In order for all instances of the Paygol button to be shown correctly, please do
 - Edit "logos.css" from your BoxBilling installation. It's located at "bb-themes/huraga/assets/css/logos.css".
 - Add the following lines to the end of the file.
   
-  .logo-PayGol
+  .logo-Paygol
 	{
-		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%;
+		background: transparent url("../img/gateway_logos/Paygol.png") no-repeat scroll 0% 0%;
 		background-size: contain;
 		width:80px;
 		height: 28px;
@@ -49,8 +49,8 @@ In order for all instances of the Paygol button to be shown correctly, please do
 Please note: if you are not using the default theme "huraga", you need to do the following:
 - Modify the CSS file on the right folder, not in "huraga".
   e.g. "bb-themes/mytheme/assets/css/logos.css".
-- Copy image "bb-themes/huraga/assets/img/gateway_logos/PayGol.png" to a similar path for the other theme.
-  e.g. "bb-themes/mytheme/assets/img/gateway_logos/PayGol.png".
+- Copy image "bb-themes/huraga/assets/img/gateway_logos/Paygol.png" to a similar path for the other theme.
+  e.g. "bb-themes/mytheme/assets/img/gateway_logos/Paygol.png".
 - As an alternative to the previous steps, just rename the folder name with the right one before copying it to your server.
 
 Important Notes:
@@ -83,11 +83,11 @@ Requerimientos:
 - Servicio Estándar de Paygol, de tipo "Integrado".
 
 Instalación:
-- Descomprime el archivo paygol_for_boxbilling_1.1.zip directamente en tu carpeta de BoxBilling.
+- Descomprime el archivo paygol_for_boxbilling_1.0.zip directamente en tu carpeta de BoxBilling.
 - Para instalar el módulo, ve al panel de administración de BoxBilling (Configuration -> Payment Gateways), selecciona Paygol en la pestaña "New payment gateways", y haz click en "Install".
 - Una vez instalado, procede a la página de configuración del módulo (Configuration -> Payment Gateways), selecciona Paygol y haz click en "Edit".
 - Ingresa el ID de tu servicio de Paygol (puedes encontrarlo en la sección "Mis Servicios" de tu panel de control, en el sitio web de Paygol).
-- Ingresa secret key de tu servicio de Paygol (puedes encontrarlo en la sección "Mis Servicios" de tu panel de control, en el sitio web de Paygol).
+- Ingresa Secret key de tu servicio de Paygol (puedes encontrarlo en la sección "Mis Servicios" de tu panel de control, en el sitio web de Paygol).
 - Asegúrate de que el módulo está configurado como se indica a continuación:
 		- "Enabled: Yes".
 		- "Allow one time payments: Yes".
@@ -105,9 +105,9 @@ Para asegurarte de que todas las instancias del botón de pago de Paygol son mos
 - Edit el archivo "logos.css" de tu instalación de BoxBilling. Este archivo se encuentra en "bb-themes/huraga/assets/css/logos.css".
 - Agregar las siguientes lineas al final del codigo "logos.css".
 	
-	.logo-PayGol
+	.logo-Paygol
 	{
-		background: transparent url("../img/gateway_logos/PayGol.png") no-repeat scroll 0% 0%;
+		background: transparent url("../img/gateway_logos/Paygol.png") no-repeat scroll 0% 0%;
 		background-size: contain;
 		width:80px;
 		height: 28px;
@@ -119,8 +119,8 @@ Para asegurarte de que todas las instancias del botón de pago de Paygol son mos
 Favor de considerar: en el caso de no utilizar la plantilla por defecto "huraga", es necesario hacer lo siguiente:
 - Modificar el archivo CSS en la carpeta correcta, no en "huraga".
   Ej: "bb-themes/mytheme/assets/css/logos.css".
-- Copiar la imagen "bb-themes/huraga/assets/img/gateway_logos/PayGol.png" a una ruta similar correspondiente a la otra plantilla.
-  Ej: "bb-themes/mytheme/assets/img/gateway_logos/PayGol.png".
+- Copiar la imagen "bb-themes/huraga/assets/img/gateway_logos/Paygol.png" a una ruta similar correspondiente a la otra plantilla.
+  Ej: "bb-themes/mytheme/assets/img/gateway_logos/Paygol.png".
 - Como alternativa a los puntos anteriores, simplemente cambia el nombre de la carpeta al correcto antes de copiarla a tu servidor.
   
 Notas importantes:
